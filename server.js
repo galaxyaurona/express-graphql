@@ -10,7 +10,7 @@ const path = require('path');
 const socketio = require('socket.io');
 const express = require('express');
 const bodyParser = require ("body-parser");
-
+const userSchema = require("./schema/schema")
 
 const expressGraphQL = require("express-graphql")
 
@@ -26,6 +26,7 @@ const router = express();
 const server = http.createServer(router);
 
 router.use("/graphql", expressGraphQL({
+  schema:userSchema,
   graphiql: true
 }))
 
@@ -35,7 +36,7 @@ router.use((req,res,next) => {
   res.status(404).send("Not found")
 });
 
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+server.listen(process.env.PORT || 3002, process.env.IP || "0.0.0.0", function(){
   const addr = server.address();
   console.log("Server listening at", addr.address + ":" + addr.port);
 });

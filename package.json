@@ -5,15 +5,18 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "json:serve": "json-server --watch db.json"
   },
   "author": "Neil Tran",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-graphql": "^0.6.6",
     "graphql": "^0.10.3",
+    "json-server": "^0.11.0",
     "lodash": "^4.17.4",
     "socket.io": "^2.0.3"
   }
